@@ -1,15 +1,15 @@
 import React from 'react'
 import Title from '../shared/Title';
 import Header from './Header';
-import { Drawer, Grid2, Skeleton } from "@mui/material";
+import { Drawer, Box, Skeleton } from "@mui/material";
 const AppLayout = () => (WrappedComponent) => {
     return (props) => {
         return (
             <>
                 <Title />
                 <Header></Header>
-                <Grid2 container height={"calc(100vh - 4rem)"}>
-                    <Grid2
+                <Box container height={"calc(100vh - 4rem)"}>
+                    <Box
                         item
                         sm={4}
                         md={3}
@@ -18,12 +18,12 @@ const AppLayout = () => (WrappedComponent) => {
                         }}
                         height={"100%"}
                     >
-                    </Grid2>
-                    <Grid2 item xs={12} sm={8} md={5} lg={6} height={"100%"}>
+                    </Box>
+                    <Box item xs={12} sm={8} md={5} lg={6} height={"100%"}>
                         <WrappedComponent {...props}/>
-                    </Grid2>
+                    </Box>
 
-                    <Grid2
+                    <Box
                         item
                         md={4}
                         lg={3}
@@ -35,8 +35,8 @@ const AppLayout = () => (WrappedComponent) => {
                         }}
                     >
                         
-                    </Grid2>
-                </Grid2>
+                    </Box>
+                </Box>
             </>
         );
     };
