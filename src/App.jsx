@@ -17,7 +17,7 @@ function App() {
   const [count, setCount] = useState(0)
   return (
     <BrowserRouter>
-    <Suspense fallback={<Layout}>
+    <Suspense fallback={<Layout/>}>
       <Routes>
         <Route element={<ProtectRoute user={user} />}>
           <Route path="/" element={<Home />}></Route>
