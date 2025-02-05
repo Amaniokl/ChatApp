@@ -2,11 +2,12 @@ import {
     AppBar,
     Backdrop,
     Badge,
-    Box,
+    Grid2,
     IconButton,
     Toolbar,
     Tooltip,
     Typography,
+    Grid2
   } from "@mui/material";
   import React, { Suspense, lazy, useState } from "react";
   import { orange } from "../../constants/color";
@@ -74,7 +75,7 @@ import {
   
     return (
       <>
-        <Box sx={{ flexGrow: 1 }} height={"4rem"}>
+        <Grid2 sx={{ flexGrow: 1 }} height={"4rem"}>
           <AppBar
             position="static"
             sx={{
@@ -91,7 +92,7 @@ import {
                 Chattu
               </Typography>
   
-              <Box
+              <Grid2
                 sx={{
                   display: { xs: "block", sm: "none" },
                 }}
@@ -99,13 +100,13 @@ import {
                 <IconButton color="inherit" onClick={handleMobile}>
                   <MenuIcon />
                 </IconButton>
-              </Box>
-              <Box
+              </Grid2>
+              <Grid2
                 sx={{
                   flexGrow: 1,
                 }}
               />
-              <Box>
+              <Grid2>
                 <IconBtn
                   title={"Search"}
                   icon={<SearchIcon />}
@@ -136,10 +137,10 @@ import {
                   icon={<LogoutIcon />}
                   onClick={logoutHandler}
                 />
-              </Box>
+              </Grid2>
             </Toolbar>
           </AppBar>
-        </Box>
+        </Grid2>
   
         {isSearch && (
           <Suspense fallback={<Backdrop open />}>
