@@ -12,13 +12,13 @@ import {
   Button,
   CircularProgress,
   Drawer,
-  Grid2,
   IconButton,
   Stack,
   TextField,
   Tooltip,
   Typography,
 } from "@mui/material";
+import {Grid2} from "@mui/material/Grid2"
 import React, { Suspense, lazy, memo, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { LayoutLoader } from "../components/layout/Loaders";
