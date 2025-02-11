@@ -18,7 +18,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import {Grid2} from "@mui/material/Grid2"
+import {Grid2} from "@mui/material"
 import React, { Suspense, lazy, memo, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { LayoutLoader } from "../components/layout/Loaders";
@@ -38,10 +38,10 @@ import {
 import { setIsAddMember } from "../redux/reducers/misc";
 
 const ConfirmDeleteDialog = lazy(() =>
-  import("../components/dialogs/ConfirmDeleteDialog")
+  import("../components/dialog/ConfirmDeleteDialog.jsx")
 );
 const AddMemberDialog = lazy(() =>
-  import("../components/dialogs/AddMemberDialog")
+  import("../components/dialog/AddMemberDialog")
 );
 
 const Groups = () => {

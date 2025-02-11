@@ -1,33 +1,35 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProtectRoute from "./components/auth/ProtectRoute";
-import { LayoutLoader } from "./components/layout/Loaders";
+import ProtectRoute from "./components/auth/ProtectRoute.jsx";
+import { LayoutLoader } from "./components/layout/Loaders.jsx";
 import axios from "axios";
-import { server } from "./constants/config";
+import { server } from "./constants/config.js";
 import { useDispatch, useSelector } from "react-redux";
-import { userExists, userNotExists } from "./redux/reducers/auth";
+import { userExists, userNotExists } from "./redux/reducers/auth.js";
 import { Toaster } from "react-hot-toast";
 import { SocketProvider } from "./socket";
 
-const Home = lazy(() => import("./pages/Home"));
-const Login = lazy(() => import("./pages/Login"));
-const Chat = lazy(() => import("./pages/Chat"));
-const Groups = lazy(() => import("./pages/Group"));
-const NotFound = lazy(() => import("./pages/Notfound"));
-
+const Home = lazy(() => import("./pages/Home.jsx"));
+const Login = lazy(() => import("./pages/Login.jsx"));
+const Chat = lazy(() => import("./pages/Chat.jsx"));
+const Groups = lazy(() => import("./pages/Group.jsx"));
+const NotFound = lazy(() => import("./pages/Notfound.jsx"));
 
 
 const App = () => {
   const { user, loader } = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
-
+  console.log(server);
+  // const user=true;
   useEffect(() => {
     axios
-      .get(`${server}/api/v1/user/me`, { withCredentials: true })
+      .post(`${server}/api`, { withCredentials: true })
       .then(({ data }) => dispatch(userExists(data.user)))
-      .catch((err) => dispatch(userNotExists()));
+      .catch((err) => dispatch(userNotExists(err)));
   }, [dispatch]);
+  
+  // console.log(user);
+  
   return loader ? (
     <LayoutLoader />
   ) : (
@@ -54,7 +56,7 @@ const App = () => {
               </ProtectRoute>
             }
           />
-{/* 
+          {/* 
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/users" element={<UserManagement />} />

@@ -10,7 +10,7 @@ import {
     Grid2
   } from "@mui/material";
   import React, { Suspense, lazy, useState } from "react";
-  import { orange } from "../../constants/color";
+  import { orange } from "../../constants/color.js";
   import {
     Add as AddIcon,
     Menu as MenuIcon,
@@ -21,17 +21,17 @@ import {
   } from "@mui/icons-material";
   import { useNavigate } from "react-router-dom";
   import axios from "axios";
-  import { server } from "../../constants/config";
+  import { server } from "../../constants/config.js";
   import toast from "react-hot-toast";
   import { useDispatch, useSelector } from "react-redux";
-  import { userNotExists } from "../../redux/reducers/auth";
+  import { userNotExists } from "../../redux/reducers/auth.js";
   import {
     setIsMobile,
     setIsNewGroup,
     setIsNotification,
     setIsSearch,
-  } from "../../redux/reducers/misc";
-  import { resetNotificationCount } from "../../redux/reducers/chat";
+  } from "../../redux/reducers/misc.js";
+  import { resetNotificationCount } from "../../redux/reducers/chat.js";
   
   const SearchDialog = lazy(() => import("../specific/Search"));
   const NotifcationDialog = lazy(() => import("../specific/Notifications"));
@@ -63,7 +63,7 @@ import {
   
     const logoutHandler = async () => {
       try {
-        const { data } = await axios.get(`${server}/api/v1/user/logout`, {
+        const { data } = await axios.post(`${server}/api/logout`, {
           withCredentials: true,
         });
         dispatch(userNotExists());
