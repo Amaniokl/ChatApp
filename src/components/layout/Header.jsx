@@ -63,9 +63,14 @@ import {
   
     const logoutHandler = async () => {
       try {
-        const { data } = await axios.post(`${server}/api/logout`, {
+        console.log("dfs");
+        console.log(server);
+        
+        const { data } = await axios.post(`${server}/api/logout`, {},{
           withCredentials: true,
         });
+        console.log(data);
+        
         dispatch(userNotExists());
         toast.success(data.message);
       } catch (error) {

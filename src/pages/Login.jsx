@@ -62,13 +62,16 @@ const Login = () => {
         config
       );
       console.log(data);
-      console.log(data.user);
+      // const ter=data.data.user
+      // console.log(ter);
       
-      dispatch(userExists(data.user));
+      dispatch(userExists(data.data.user));
       toast.success(data.message, {
         id: toastId,
       });
     } catch (error) {
+      // console.log(error);
+      
       toast.error(error?.response?.data?.message || "Something Went Wrong", {
         id: toastId,
       });
